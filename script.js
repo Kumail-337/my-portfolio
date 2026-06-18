@@ -1,15 +1,12 @@
-// Theme toggle functionality
 const themeToggle = document.getElementById("themeToggle");
 const htmlElement = document.documentElement;
 
-// Load saved theme preference or default to dark mode
 const savedTheme = localStorage.getItem("theme") || "dark";
 if (savedTheme === "light") {
   htmlElement.classList.add("light-mode");
   themeToggle.checked = true;
 }
 
-// Toggle theme on checkbox change
 themeToggle.addEventListener("change", () => {
   if (themeToggle.checked) {
     htmlElement.classList.add("light-mode");
@@ -20,7 +17,6 @@ themeToggle.addEventListener("change", () => {
   }
 });
 
-// Smooth scroll for all navigation links
 document.querySelectorAll('a[href^="#"]').forEach((link) => {
   link.addEventListener("click", function (e) {
     e.preventDefault();
@@ -32,7 +28,6 @@ document.querySelectorAll('a[href^="#"]').forEach((link) => {
   });
 });
 
-// Update active navigation link based on scroll position
 window.addEventListener(
   "scroll",
   () => {
@@ -56,7 +51,6 @@ window.addEventListener(
   { passive: true },
 );
 
-// Fade in project cards when they enter viewport
 const observerOptions = {
   threshold: 0.1,
   rootMargin: "0px 0px -100px 0px",
@@ -72,7 +66,6 @@ const observer = new IntersectionObserver((entries) => {
   });
 }, observerOptions);
 
-// Apply fade-in animation to cards
 document.querySelectorAll(".card").forEach((card) => {
   card.style.opacity = "0";
   card.style.transform = "translateY(20px)";
